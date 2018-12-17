@@ -21,7 +21,12 @@ module.exports = {
                     ],
                     plugins: ["transform-runtime", "babel-plugin-transform-regenerator", "babel-plugin-transform-es2015-modules-commonjs"], // for async/await
                 }
-            }
+            },
+
+            {
+                test:/\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
         ]
     }
 };
