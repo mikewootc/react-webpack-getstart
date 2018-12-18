@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devc":  "webpack --watch --dev",
+    "devc": "webpack --watch --dev",
     "build": "webpack ",
     "serve": "cd dist && browser-sync start --server --files '**/*.html, **/*.css, **/*.js'"
   },
@@ -32,5 +32,8 @@
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0"
+  }
 }

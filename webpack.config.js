@@ -23,13 +23,31 @@ let config = {
                         'stage-1',  // stage-1 for static properties in class.
                         'stage-3',  // stage-3 for '...' operator
                     ],
-                    plugins: ["transform-runtime", "babel-plugin-transform-regenerator", "babel-plugin-transform-es2015-modules-commonjs"], // for async/await
-                }
+                    plugins: [
+                        "transform-runtime", "babel-plugin-transform-regenerator", "babel-plugin-transform-es2015-modules-commonjs", // for async/await
+                        //["import", [{ "libraryName": "antd", "style": true }]],
+                    ],
+                },
             },
 
             {
                 test:/\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test:/\.less$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    }, {
+                        loader: "css-loader"
+                    }, {
+                        loader: "less-loader",
+                        options: {
+                            javascriptEnabled: true
+                        },
+                    }
+                ],
             },
         ]
     }
