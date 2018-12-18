@@ -1,9 +1,13 @@
-module.exports = {
-    mode: 'development',
-    entry: __dirname + "/src/main.js",  // 唯一入口文件
-    output: {                           // 输出目录
-        path: __dirname + "/dist",      // 打包后的js文件存放的地方
-        filename: "bundle.js"           // 打包后输出的js的文件名
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
+let config = {
+    //mode: 'development',
+    entry: {
+        'client': __dirname + "/client/src/main.js",
+    },
+    output: {                               // 输出
+        path: __dirname,                    // 打包后的js文件存放的地方
+        filename: "[name]/dist/bundle.js" // 打包后输出的js的文件名
     },
  
     module: {
@@ -30,3 +34,23 @@ module.exports = {
         ]
     }
 };
+
+module.exports = (env, argv) => {
+    //console.log(`mode: ${argv.dev}`);
+
+    if (argv.dev) {
+        // 开发模式
+        console.log('[01;33mmode: development[0m');
+        config.mode     = 'development',
+        config.devtool  = 'source-map';
+    } else {
+        // 生产模式
+        console.log('[34mmode: production[0m');
+        config.mode     = 'production',
+        config.devtool = 'none';
+        config.plugins =  [
+            new UglifyJSPlugin()
+        ]
+    }
+    return config;
+}
