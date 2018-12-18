@@ -27,7 +27,7 @@ async function __main__() {
     //
     //logger.debug('Config file:', argv.c);
 
-    //app.use(compression());
+    app.use(compression());
 
     app.get('/', function (req, res) {
         res.send('It works! ^_^');
