@@ -1,4 +1,5 @@
 let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+let webpack = require('webpack')
 
 let config = {
     //mode: 'development',
@@ -64,6 +65,13 @@ module.exports = (env, argv) => {
     } else {
         // 生产模式
         console.log('[34mmode: production[0m');
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        });
+
         config.mode     = 'production',
         config.devtool = 'none';
         config.plugins =  [
