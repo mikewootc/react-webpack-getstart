@@ -15,3 +15,12 @@ const userInfo = (state = initialState, action) => {
 };
 
 export default userInfo;
+
+export const selectUserInfo = {
+    getUsername: (state) => {
+        return state.userInfo.username;
+    },
+    getPassword: (state) => {
+        return state.userInfo.password;
+    },
+};

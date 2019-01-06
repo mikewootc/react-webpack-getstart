@@ -1,10 +1,16 @@
 import { connect } from 'react-redux'
 import ScreenLogin from '../components/ScreenLogin.jsx'
 import { usernameChange, passwordChange } from '../actions/rootActions'
+import * as select from '../actions/select.js';
 console.log('ScreenLogin:', ScreenLogin);
 
 function mapStateToProps (state, ownProps) {
-    return { username: state.userInfo.username, password: state.userInfo.password };
+    console.log('select:', select);
+    return {
+        username: select.getUsername(state),
+        password: select.getPassword(state),
+        //password: state.userInfo.password,
+    };
 }
 
 function mapDispatchToProps(dispatch, myProps) {
