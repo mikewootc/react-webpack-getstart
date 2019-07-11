@@ -59,4 +59,27 @@ if (require.main === module) {
     }
 }
 
+interface Shape{
+    color: string;
+}
+
+interface PenStroke{
+    penWidth: number;
+}
+
+interface Square extends Shape,PenStroke{
+    sideLength: number;
+}
+
+let s = <Square>{};
+s.color = "blue";
+s.penWidth = 100;
+s.sideLength = 10;
+
+
+let p = <PenStroke>{};
+p.penWidth = 1;
+
+
+
 // vim:set tw=0:

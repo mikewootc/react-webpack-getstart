@@ -1,0 +1,20 @@
+{
+    "ecmaVersion": 6,
+    "libs": [
+        "browser",
+        "underscore",
+        "jquery",
+        "react"
+    ],
+    "plugins": {
+        "node": {},
+        "es_modules": {},
+        "requirejs": {
+            "baseURL": "./",
+            "paths": {}
+        }
+    },
+    "dontLoad": [
+        "node_modules/**"
+    ]
+}
