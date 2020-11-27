@@ -4,11 +4,11 @@ let webpack = require('webpack')
 let config = {
     //mode: 'development',
     entry: {
-        'client': __dirname + "/client/src/main.js",
+        'client': __dirname + "/src/main.js",
     },
     output: {                               // 输出
         path: __dirname,                    // 打包后的js文件存放的地方
-        filename: "[name]/dist/bundle.js" // 打包后输出的js的文件名
+        filename: "../server/dist/[name]/[name]_bundle.js" // 打包后输出的js的文件名
     },
  
     module: {

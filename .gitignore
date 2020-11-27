@@ -1,3 +1,5 @@
 bundle.js
 bundle.js.map
 server_bundle.js
+client_bundle.js
+client_bundle.js.map

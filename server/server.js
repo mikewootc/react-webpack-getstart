@@ -8,8 +8,7 @@ const http       = require('http')
 //const proxy      = require('http-proxy-middleware')
 const yargs      = require('yargs');
 const Logger     = require('cpclog');
-const compression = require('compression');
-const a          = require('./a.ts');
+const compression = require('compression')
 
 const logger = Logger.createWrapper('server', Logger.LEVEL_DEBUG);
 
@@ -30,18 +29,17 @@ async function __main__() {
 
     app.use(compression());
 
-    app.get('/', function (req:any, res:any) {
+    app.get('/', function (req, res) {
         res.send('It works! ^_^');
     });
 
-    app.use('/admin', express.static('admin/dist/'));
+    //app.use('/admin', express.static('admin/dist/'));
 
-    app.use('/client', express.static('client/dist/'));
+    app.use('/client', express.static('client/'));
 
-    const portHttp:number = 3003;
+    const portHttp = 3003;
     logger.info(`Listening on ${portHttp}`);
     serverHttp.listen(portHttp);
-    console.log('a:', a.i);
 }
 
 if (require.main === module) {
@@ -58,28 +56,5 @@ if (require.main === module) {
         logger.error(err);
     }
 }
-
-interface Shape{
-    color: string;
-}
-
-interface PenStroke{
-    penWidth: number;
-}
-
-interface Square extends Shape,PenStroke{
-    sideLength: number;
-}
-
-let s = <Square>{};
-s.color = "blue";
-s.penWidth = 100;
-s.sideLength = 10;
-
-
-let p = <PenStroke>{};
-p.penWidth = 1;
-
-
 
 // vim:set tw=0:
