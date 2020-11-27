@@ -8,7 +8,7 @@ let config = {
     },
     output: {                               // 输出
         path: __dirname,                    // 打包后的js文件存放的地方
-        filename: "../server/dist/[name]/[name]_bundle.js" // 打包后输出的js的文件名
+        filename: "../../build/dist/[name]/[name]_bundle.js" // 打包后输出的js的文件名
     },
  
     module: {

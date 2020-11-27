@@ -35,7 +35,7 @@ async function __main__() {
 
     //app.use('/admin', express.static('admin/dist/'));
 
-    app.use('/client', express.static('client/'));
+    app.use('/client', express.static('public/client/'));
 
     const portHttp = 3003;
     logger.info(`Listening on ${portHttp}`);

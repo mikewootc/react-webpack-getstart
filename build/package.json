@@ -1,0 +1,21 @@
+{
+  "name": "mynode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devr": "nodemon server_bundle.js",
+    "devu": "cd client/dist && browser-sync start --server --files '**/*.html, **/*.css, **/*.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cpclog": "^1.0.13",
+    "express": "^4.16.4",
+    "webpack-node-externals": "^1.7.2",
+    "yargs": "^16.1.1"
+  }
+}
