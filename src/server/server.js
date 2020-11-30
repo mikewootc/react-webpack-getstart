@@ -6,9 +6,12 @@ const app        = express();
 const http       = require('http')
 //const https      = require('https')
 //const proxy      = require('http-proxy-middleware')
+const bodyParser = require("body-parser");
 const yargs      = require('yargs');
 const Logger     = require('cpclog');
 const compression = require('compression')
+
+const userRouter                        = require('./routes/user');
 
 const logger = Logger.createWrapper('server', Logger.LEVEL_DEBUG);
 
@@ -28,10 +31,14 @@ async function __main__() {
     //logger.debug('Config file:', argv.c);
 
     app.use(compression());
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 
     app.get('/', function (req, res) {
         res.send('It works! ^_^');
     });
+
+    app.use('/user', userRouter);
 
     //app.use('/admin', express.static('admin/dist/'));
 

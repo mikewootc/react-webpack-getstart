@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.21.0",
     "cpclog": "^1.0.13",
     "css-loader": "^3.4.2",
     "deep-freeze": "^0.0.1",
