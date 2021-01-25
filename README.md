@@ -1,2 +1,2 @@
-# vue-webpack-getstart
-Getting start pack for vue + webpack.
+# e2e-webpack-getstart
+Getting start pack for react / vue + node + webpack.
