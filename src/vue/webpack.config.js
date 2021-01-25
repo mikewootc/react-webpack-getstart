@@ -1,10 +1,11 @@
-let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-let webpack = require('webpack')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const webpack = require('webpack')
+const { VueLoaderPlugin } = require("vue-loader");
 
 let config = {
     //mode: 'development',
     entry: {
-        'client': __dirname + "/src/main.js",
+        'ClientV': __dirname + "/src/index.js",
     },
     output: {                               // 输出
         path: __dirname,                    // 打包后的js文件存放的地方
@@ -20,7 +21,6 @@ let config = {
                 query: {
                     presets: [
                         'es2015',
-                        'react',
                         'stage-1',  // stage-1 for static properties in class.
                         'stage-3',  // stage-3 for '...' operator
                     ],
@@ -29,6 +29,10 @@ let config = {
                         //["import", [{ "libraryName": "antd", "style": true }]],
                     ],
                 },
+            },
+            {
+                test: /\.vue$/,
+                loader: "vue-loader"
             },
             {
                 test:/\.css$/,
@@ -54,6 +58,9 @@ let config = {
     resolve: {
         extensions: ['.js', '.json', '.jsx']
     },
+    plugins: [
+        new VueLoaderPlugin(),
+    ],
 };
 
 module.exports = (env, argv) => {
