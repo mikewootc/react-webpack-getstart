@@ -11,7 +11,7 @@
 
 
 <script>
-    module.exports = {
+    export default {
         data: function d() {
             return {
                 counter: 0,
